@@ -65,5 +65,5 @@ class LFUCache(BaseCaching):
         self.lru_order.pop(lru_key)
         self.freq_order[min_freq].pop(lru_key)
         if not self.freq_order[min_freq]:
-            del self.freq_order[min_freq] 
+            del self.freq_order[min_freq]
         print(f"DISCARD: {lru_key}")
