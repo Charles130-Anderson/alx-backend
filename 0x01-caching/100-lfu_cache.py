@@ -36,29 +36,23 @@ class LFUCache(BaseCaching):
         """ Get an item by key """
         if key is None or key not in self.cache_data:
             return None
-        
         self.frequency[key] += 1
         self.lru_order.move_to_end(key)
-        
         # Update frequency and move to new frequency order
         old_freq = self.frequency[key] - 1
         if old_freq in self.freq_order:
             self.freq_order[old_freq].pop(key)
             if not self.freq_order[old_freq]:
                 del self.freq_order[old_freq]
-        
         self.freq_order[self.frequency[key]][key] = None
-        
         return self.cache_data[key]
 
     def evict(self):
         """ Evict the least frequently used item """
         if not self.freq_order:
             return
-        
         min_freq = min(self.freq_order.keys())
         lfu_items = list(self.freq_order[min_freq].keys())
-        
         if len(lfu_items) > 1:
             lru_key = next(iter(self.lru_order))
             while lru_key not in lfu_items:
@@ -71,6 +65,5 @@ class LFUCache(BaseCaching):
         self.lru_order.pop(lru_key)
         self.freq_order[min_freq].pop(lru_key)
         if not self.freq_order[min_freq]:
-            del self.freq_order[min_freq]
-        
+            del self.freq_order[min_freq] 
         print(f"DISCARD: {lru_key}")
