@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""A simple flask app
-"""
+"""Flask app with gettext"""
 
 
 from flask import Flask, render_template, request, g
@@ -8,17 +7,12 @@ from flask_babel import Babel
 
 
 class Config(object):
-    """_summary_
-
-    Returns:
-                    _type_: _description_
-    """
+    """Babel configuration"""
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-# configure the flask app
 app = Flask(__name__)
 app.config.from_object(Config)
 app.url_map.strict_slashes = False
@@ -34,8 +28,7 @@ users = {
 
 
 def get_user():
-    """returns a user dictionary or None if the ID cannot be found
-    """
+    """Get user by ID"""
     login_id = request.args.get('login_as')
     if login_id:
         return users.get(int(login_id))
@@ -44,19 +37,14 @@ def get_user():
 
 @app.before_request
 def before_request() -> None:
-    """_summary_
-    """
+    """Before request handler"""
     user = get_user()
     g.user = user
 
 
 @babel.localeselector
 def get_locale():
-    """_summary_
-
-    Returns:
-                    _type_: _description_
-    """
+    """Select best locale"""
     locale = request.args.get('locale')
     if locale in app.config['LANGUAGES']:
         print(locale)
@@ -64,13 +52,10 @@ def get_locale():
 
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
-# babel.init_app(app, locale_selector=get_locale)
-
 
 @app.route('/')
 def index():
-    """_summary_
-    """
+    """Render index page"""
     return render_template('5-index.html')
 
 
