@@ -38,6 +38,7 @@ Repo:
 - Directory: 0x02-i18n
 - File: 0-app.py, templates/0-index.html
 ```
+```bash
 ### 1. Basic Babel setup
 mandatory
 Install the Babel Flask extension:
@@ -56,7 +57,8 @@ Repo:
 - GitHub repository: alx-backend
 - Directory: 0x02-i18n
 - File: 1-app.py, templates/1-index.html
-
+```
+```bash
 ### 2. Get locale from request
 Create a get_locale function with the babel.localeselector decorator. Use request.accept_languages to determine the best match with our supported languages.
 
@@ -65,7 +67,8 @@ Repo:
 - GitHub repository: alx-backend
 - Directory: 0x02-i18n
 - File: 2-app.py, templates/2-index.html
-
+```
+```bash
 ### 3. Parametrize templates
 mandatory
 Use the _ or gettext function to parametrize your templates. Use the message IDs home_title and home_header.
@@ -97,7 +100,8 @@ Repo:
 - GitHub repository: alx-backend
 - Directory: 0x02-i18n
 - File: 3-app.py, babel.cfg, templates/3-index.html, translations/en/LC_MESSAGES/messages.po, translations/fr/LC_MESSAGES/messages.po, translations/en/LC_MESSAGES/messages.mo, translations/fr/LC_MESSAGES/messages.mo
-
+```
+```bash
   ### 4. Force locale with URL parameter
   In this task, you will implement a way to force a particular locale by passing the locale=fr parameter to your app’s URLs.
 
@@ -112,7 +116,8 @@ Repo:
 - GitHub repository: alx-backend
 - Directory: 0x02-i18n
 - File: 4-app.py, templates/4-index.html
-
+```
+```bash
   ### 5. Mock logging in
 mandatory
 Creating a user login system is outside the scope of this project. To emulate a similar behavior, copy the following user table in 5-app.py.
@@ -148,6 +153,8 @@ Repo:
 - GitHub repository: alx-backend
 - Directory: 0x02-i18n
 - File: 5-app.py, templates/5-index.html
+```
+```bash
 ### 6. Use user locale
 mandatory
 Change your get_locale function to use a user’s preferred local if it is supported.
@@ -167,7 +174,8 @@ Repo:
 - GitHub repository: alx-backend
 - Directory: 0x02-i18n
 - File: 6-app.py, templates/6-index.html
-
+```
+```bash
 ### 7. Infer appropriate time zone
 mandatory
 Define a get_timezone function and use the babel.timezoneselector decorator.
@@ -184,7 +192,8 @@ Repo:
 - GitHub repository: alx-backend
 - Directory: 0x02-i18n
 - File: 7-app.py, templates/7-index.html
-
+```
+```bash
 ### 8. Display the current time
 #advanced
 Based on the inferred time zone, display the current time on the home page in the default format. For example:
@@ -209,7 +218,7 @@ Repo:
 - GitHub repository: alx-backend
 - Directory: 0x02-i18n
 - File: app.py, templates/index.html, translations/en/LC_MESSAGES/messages.po, translations/fr/LC_MESSAGES/messages.po
-  
+  ```
 ## Created by Charles Anderson 
 Let's link and connect on:
 
