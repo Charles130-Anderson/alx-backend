@@ -28,10 +28,12 @@
 - All your functions and coroutines must be type-annotated.
 </div>
 ## Tasks
+
+<div style="border: 1px solid black; padding: 10px;">
 ### 0. Basic Flask app
 mandatory
 First you will setup a basic Flask app in 0-app.py. Create a single / route and an index.html template that simply outputs “Welcome to Holberton” as page title (<title>) and “Hello world” as header 1.
-
+</div>
 Repo:
 
 - GitHub repository: alx-backend
