@@ -4,9 +4,6 @@
 from flask import Flask, render_template, request
 from flask_babel import Babel, _
 
-app = Flask(__name__)
-babel = Babel(app)
-
 
 class Config:
     """Babel configuration"""
@@ -15,6 +12,10 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
+app = Flask(__name__)
+app.config.from_object(Config)
+app.url_map.strict_slashes = False
+babel = Babel(app)
 app.config.from_object(Config)
 
 
@@ -34,4 +35,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port="5000", host="0.0.0.0", debug=True)
