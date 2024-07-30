@@ -2,10 +2,7 @@
 """Flask app with gettext"""
 
 from flask import Flask, render_template, request
-from flask_babel import Babel, _
-
-app = Flask(__name__)
-babel = Babel(app)
+from flask_babel import Babel
 
 
 class Config:
@@ -15,7 +12,10 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
+app = Flask(__name__)
 app.config.from_object(Config)
+app.url_map.strict_slashes = False
+babel = Babel(app)
 
 
 @babel.localeselector
@@ -23,6 +23,7 @@ def get_locale():
     """Select best locale"""
     locale = request.args.get('locale')
     if locale in app.config['LANGUAGES']:
+        print(locale)
         return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
@@ -34,4 +35,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port="5000", host="0.0.0.0", debug=True)
