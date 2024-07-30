@@ -12,6 +12,7 @@
 - Learn how to parametrize Flask templates to display different languages
 - Learn how to infer the correct locale based on URL parameters, user settings or request headers
 - Learn how to localize timestamps
+
 ## Requirements
 - All your files will be interpreted/compiled on Ubuntu 18.04 LTS using python3 (version 3.7)
 - All your files should end with a new line
@@ -28,7 +29,7 @@
 ## Tasks
 ### 0. Basic Flask app
 mandatory
-First you will setup a basic Flask app in 0-app.py. Create a single / route and an index.html template that simply outputs “Welcome to Holberton” as page title (<title>) and “Hello world” as header (<h1>).
+First you will setup a basic Flask app in 0-app.py. Create a single / route and an index.html template that simply outputs “Welcome to Holberton” as page title (<title>) and “Hello world” as header.
 
 Repo:
 
