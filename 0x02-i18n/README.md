@@ -1,4 +1,12 @@
 # Project: 0x02. i18n
+- Back-end
+- Weight: 1
+- Project will start Jul 30, 2024 6:00 AM, must end by Jul 31, 2024 6:00 AM
+- Checker was released at Jul 30, 2024 12:00 PM
+- Manual QA review must be done (request it when you are done with the project)
+- An auto review will be launched at the deadline
+
+![image](https://github.com/user-attachments/assets/10be6e59-2858-4a20-8c70-148723f5bbcc)
 
 ## Resources
 
