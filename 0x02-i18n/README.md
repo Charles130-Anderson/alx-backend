@@ -28,7 +28,7 @@
 
 ## Tasks
 ```bash
-### 0. Basic Flask app
+0. Basic Flask app
 mandatory
 First you will setup a basic Flask app in 0-app.py. Create a single / route and an index.html template that simply outputs “Welcome to Holberton” as page title (<title>) and “Hello world” as header 1.
 </div>
@@ -39,7 +39,7 @@ Repo:
 - File: 0-app.py, templates/0-index.html
 ```
 ```bash
-### 1. Basic Babel setup
+1. Basic Babel setup
 mandatory
 Install the Babel Flask extension:
 
@@ -59,7 +59,7 @@ Repo:
 - File: 1-app.py, templates/1-index.html
 ```
 ```bash
-### 2. Get locale from request
+2. Get locale from request
 Create a get_locale function with the babel.localeselector decorator. Use request.accept_languages to determine the best match with our supported languages.
 
 Repo:
@@ -69,7 +69,7 @@ Repo:
 - File: 2-app.py, templates/2-index.html
 ```
 ```bash
-### 3. Parametrize templates
+3. Parametrize templates
 mandatory
 Use the _ or gettext function to parametrize your templates. Use the message IDs home_title and home_header.
 
@@ -102,23 +102,22 @@ Repo:
 - File: 3-app.py, babel.cfg, templates/3-index.html, translations/en/LC_MESSAGES/messages.po, translations/fr/LC_MESSAGES/messages.po, translations/en/LC_MESSAGES/messages.mo, translations/fr/LC_MESSAGES/messages.mo
 ```
 ```bash
-  ### 4. Force locale with URL parameter
-  In this task, you will implement a way to force a particular locale by passing the locale=fr parameter to your app’s URLs.
+4. Force locale with URL parameter
+In this task, you will implement a way to force a particular locale by passing the locale=fr parameter to your app’s URLs.
 
 In your get_locale function, detect if the incoming request contains locale argument and ifs value is a supported locale, return it. If not or if the parameter is not present, resort to the previous default behavior.
 
 Now you should be able to test different translations by visiting http://127.0.0.1:5000?locale=[fr|en].
-
-Visiting http://127.0.0.1:5000/?locale=fr should display this level 1 heading:
-![image](https://github.com/user-attachments/assets/3b174fe8-4e67-45fd-b14e-d3ac161e06fd)
-Repo:
-
 - GitHub repository: alx-backend
 - Directory: 0x02-i18n
 - File: 4-app.py, templates/4-index.html
+Visiting http://127.0.0.1:5000/?locale=fr should display this level 1 heading:
 ```
+![image](https://github.com/user-attachments/assets/3b174fe8-4e67-45fd-b14e-d3ac161e06fd)
+Repo:
+
 ```bash
-  ### 5. Mock logging in
+5. Mock logging in
 mandatory
 Creating a user login system is outside the scope of this project. To emulate a similar behavior, copy the following user table in 5-app.py.
 
@@ -139,6 +138,12 @@ In your HTML template, if a user is logged in, in a paragraph tag, display a wel
 msgid	English	French
 logged_in_as	"You are logged in as %(username)s."	"Vous êtes connecté en tant que %(username)s."
 not_logged_in	"You are not logged in."	"Vous n'êtes pas connecté."
+Repo:
+
+- GitHub repository: alx-backend
+- Directory: 0x02-i18n
+- File: 5-app.py, templates/5-index.html
+```
 Visiting http://127.0.0.1:5000/ in your browser should display this:
 
 ![image](https://github.com/user-attachments/assets/0f200661-e28e-4f9a-976a-d2f4c0dd23de)
@@ -148,14 +153,9 @@ Visiting http://127.0.0.1:5000/?login_as=2 in your browser should display this:
 
 ![image](https://github.com/user-attachments/assets/7266bc15-92ea-4d1e-ae2d-7542b3be8955)
 
-Repo:
 
-- GitHub repository: alx-backend
-- Directory: 0x02-i18n
-- File: 5-app.py, templates/5-index.html
-```
 ```bash
-### 6. Use user locale
+6. Use user locale
 mandatory
 Change your get_locale function to use a user’s preferred local if it is supported.
 
@@ -166,17 +166,17 @@ The order of priority should be
 - Locale from request header
 - Default locale
 Test by logging in as different users
-
-![image](https://github.com/user-attachments/assets/4636470e-8612-48d6-b6f2-331feb180480)
-
 Repo:
 
 - GitHub repository: alx-backend
 - Directory: 0x02-i18n
 - File: 6-app.py, templates/6-index.html
 ```
+
+![image](https://github.com/user-attachments/assets/4636470e-8612-48d6-b6f2-331feb180480)
+
 ```bash
-### 7. Infer appropriate time zone
+7. Infer appropriate time zone
 mandatory
 Define a get_timezone function and use the babel.timezoneselector decorator.
 
@@ -194,7 +194,7 @@ Repo:
 - File: 7-app.py, templates/7-index.html
 ```
 ```bash
-### 8. Display the current time
+8. Display the current time
 #advanced
 Based on the inferred time zone, display the current time on the home page in the default format. For example:
 
@@ -204,6 +204,12 @@ Use the following translations
 
 msgid	English	French
 current_time_is	"The current time is %(current_time)s."	"Nous sommes le %(current_time)s."
+Repo:
+
+- GitHub repository: alx-backend
+- Directory: 0x02-i18n
+- File: app.py, templates/index.html, translations/en/LC_MESSAGES/messages.po, translations/fr/LC_MESSAGES/messages.po
+  ```
 Displaying the time in French looks like this:
 
 ![image](https://github.com/user-attachments/assets/ba83efa6-af2f-4318-b021-37a8b0109f25)
@@ -213,12 +219,7 @@ Displaying the time in English looks like this:
 
 ![image](https://github.com/user-attachments/assets/925a0217-19ce-45ed-9128-d8fa401d35e8)
 
-Repo:
 
-- GitHub repository: alx-backend
-- Directory: 0x02-i18n
-- File: app.py, templates/index.html, translations/en/LC_MESSAGES/messages.po, translations/fr/LC_MESSAGES/messages.po
-  ```
 ## Created by Charles Anderson 
 Let's link and connect on:
 
