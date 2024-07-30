@@ -1,8 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python4
 """Flask app with gettext"""
 
 from flask import Flask, render_template, request
-from flask_babel import Babel, _
+from flask_babel import Babel
 
 
 class Config:
@@ -16,7 +16,6 @@ app = Flask(__name__)
 app.config.from_object(Config)
 app.url_map.strict_slashes = False
 babel = Babel(app)
-app.config.from_object(Config)
 
 
 @babel.localeselector
@@ -24,6 +23,7 @@ def get_locale():
     """Select best locale"""
     locale = request.args.get('locale')
     if locale in app.config['LANGUAGES']:
+        print(locale)
         return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
