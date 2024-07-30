@@ -27,6 +27,7 @@
 - All your functions and coroutines must be type-annotated.
 
 ## Tasks
+```bash
 ### 0. Basic Flask app
 mandatory
 First you will setup a basic Flask app in 0-app.py. Create a single / route and an index.html template that simply outputs “Welcome to Holberton” as page title (<title>) and “Hello world” as header 1.
@@ -36,7 +37,7 @@ Repo:
 - GitHub repository: alx-backend
 - Directory: 0x02-i18n
 - File: 0-app.py, templates/0-index.html
-
+```
 ### 1. Basic Babel setup
 mandatory
 Install the Babel Flask extension:
