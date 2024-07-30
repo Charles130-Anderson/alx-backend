@@ -1,36 +1,51 @@
 #!/usr/bin/env python3
-"""Flask app with gettext"""
+"""A simple flask app
+"""
+
 
 from flask import Flask, render_template, request
-from flask_babel import Babel, _
+from flask_babel import Babel
 
 
-class Config:
-    """Babel configuration"""
-    LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = "en"
-    BABEL_DEFAULT_TIMEZONE = "UTC"
+class Config(object):
+    """_summary_
+
+    Returns:
+            _type_: _description_
+    """
+    LANGUAGES = ['en', 'fr']
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
+# configure the flask app
 app = Flask(__name__)
 app.config.from_object(Config)
 app.url_map.strict_slashes = False
 babel = Babel(app)
-app.config.from_object(Config)
 
 
 @babel.localeselector
 def get_locale():
-    """Select best locale"""
+    """_summary_
+
+    Returns:
+            _type_: _description_
+    """
     locale = request.args.get('locale')
     if locale in app.config['LANGUAGES']:
+        print(locale)
         return locale
+
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+# babel.init_app(app, locale_selector=get_locale)
 
 
 @app.route('/')
 def index():
-    """Render index page"""
+    """_summary_
+    """
     return render_template('4-index.html')
 
 
